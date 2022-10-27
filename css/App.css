@@ -3039,6 +3039,9 @@ a.quickview-button:hover {
   font-weight: 600;
   padding-top: 0.3rem;
 }
+.post-button:active {
+  background-color: #080C24;
+}
 
 .google-map {
   margin-bottom: 70px;

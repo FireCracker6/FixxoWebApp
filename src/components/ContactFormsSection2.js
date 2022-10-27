@@ -7,6 +7,9 @@ function ContactFormsSection2() {
 
     const [formErrors, setFormErrors] = useState({})
     const [canSubmit, setCanSubmit] = useState(false)
+    const [checkField, setCheckField] = useState(false)
+
+ 
 
     const validate = (values) => {
         const errors = {}
@@ -14,10 +17,13 @@ function ContactFormsSection2() {
 
         if (!values.name) {
             errors.name = "You must enter a name"
+      
+            
         }
 
         if (!values.email) {
             errors.email = "You must enter an email address"
+          
         }
         else if (!regex_email.test(values.email))
         errors.email = "You must enter a valid email address (eg. name@domain.com)"
@@ -32,7 +38,9 @@ function ContactFormsSection2() {
         setCanSubmit(true)
         else 
         setCanSubmit(false)
-        
+
+     
+     
         return errors;
     }
 
@@ -42,6 +50,8 @@ function ContactFormsSection2() {
     }
 
 
+
+
        
         const handleSubmit = (e) => {
 
@@ -49,6 +59,8 @@ function ContactFormsSection2() {
             setFormErrors(validate(contactForm))
 
         }
+
+
             
       
        
@@ -73,13 +85,13 @@ function ContactFormsSection2() {
               
            </div>
                 <div className="item-1">
-                  
-                    <input  id='name'  type='text' value={contactForm.fname}  onChange={handleChange}   placeholder='Your Name'  />
+                    <label htmlFor="name" id='name-label' className='errorMessage' value={contactForm.name}>{formErrors.name}</label>
+                    <input  id='name'  type='text' value={contactForm.name}  onChange={handleChange} placeholder='Your Name' required/>
                     <div className='errorMessage'> {formErrors.name} </div>
                 </div>
                   
                 <div className="item-2">
-                
+                <label htmlFor="email" id='email-label'></label>
                     <input id='email' type='email'  value={contactForm.email}  onChange={handleChange}  placeholder='Your Mail' />
                     <div className='errorMessage'> {formErrors.email} 
                     </div>
