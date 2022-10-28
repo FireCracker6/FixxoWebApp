@@ -38,36 +38,7 @@ function ContactFormsSection2() {
         }
 
     }
-      /*   const errors = {}
-        const regex_email =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-
-        if (!values.name) {
-            errors.name = "You must enter a name"
-      
-            
-        }
-
-        if (!values.email) {
-            errors.email = "You must enter an email address"
-          
-        }
-        else if (!regex_email.test(values.email))
-        errors.email = "You must enter a valid email address (eg. name@domain.com)"
      
-        if (!values.comments) {
-            errors.comments = "You must write a comment"
-        }
-        else if (values.comments.length < 5)
-        errors.comments = "Your comment must be longer than five characters. "
-
-        if (Object.keys(errors).length === 0)
-        setCanSubmit(true)
-        else 
-        setCanSubmit(false)
- */
-     
-     
-      /*   return errors; */
 
       return validate
     }
@@ -148,19 +119,18 @@ function ContactFormsSection2() {
                     </div>
                 <div className="item-1">
                    
-                    <input  id="name"  type="text" value={contactForm.name}  onChange={handleChange} placeholder="Your Name"  required />
-                    <div className="errorMessage"> {formErrors.name} </div>
+                    <input  id="name" className={ (formErrors.name) ?  'error': '' }  type="text" value={contactForm.name}  onChange={handleChange}   placeholder="Your Name"  required />                    <div className="errorMessage"> {formErrors.name} </div>
                 </div>
                   
                 <div className="item-2">
                
-                    <input id='email' type='email'  value={contactForm.email}  onChange={handleChange}  placeholder='Your Mail' />
+                    <input id='email' className={ (formErrors.email) ?  'error': '' }  type='email'  value={contactForm.email}  onChange={handleChange}  placeholder='Your Mail' />
                     <div className='errorMessage'> {formErrors.email} 
                     </div>
 
                 </div>
                 <div className="item-3">
-                      <textarea  placeholder="Comments"value={contactForm.comments}   onChange={handleChange}  id="comments" rows="8"></textarea>
+                      <textarea className={ (formErrors.comment) ?  'error': '' }  placeholder="Comments"value={contactForm.comments}   onChange={handleChange}  id="comments" rows="8"></textarea>
                         <div className='errorMessage'> {formErrors.comments} 
                         </div>
             

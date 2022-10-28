@@ -2973,6 +2973,9 @@ a.quickview-button:hover {
     margin-bottom: 60px;
     width: 100%;
   }
+  .forms-input > .container form .post-button {
+    width: 100%;
+  }
   .forms-input > .container form .item-1 input {
     padding: 0.8rem;
     width: 100%;
