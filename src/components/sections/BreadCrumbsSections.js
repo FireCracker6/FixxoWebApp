@@ -12,7 +12,7 @@ const BreadCrumbsSections = ({currentPage}) => {
       <section className="breadcrumbs-section">
 
         
-    <div style={{height: '50px'}}></div>
+    
    
         <div className="container">
             <div className="breadcrumbs">

@@ -18,7 +18,7 @@ function ContactFormsSection2() {
 
             errors.name = validate_name(contactForm.name)
             errors.email = validate_email(contactForm.email)
-            errors.comment = validate_comment(contactForm.comments)
+            errors.comments = validate_comment(contactForm.comments)
             return errors
         }
 
@@ -34,6 +34,7 @@ function ContactFormsSection2() {
  
             case 'comment':
                 return validate_comment(value)
+             
     
         }
 
@@ -45,7 +46,7 @@ function ContactFormsSection2() {
 
     const handleChange = (e) => {
         const {id, value} = e.target 
-        setContactForm({...ContactFormsSection2, [id]: value })
+        setContactForm({...contactForm, [id]: value })
         setFormErrors({...formErrors, [id]: validate(e) })
     }
 
@@ -67,15 +68,15 @@ function ContactFormsSection2() {
 
         const handleKeyUp = (e) => {
 
-            const {id, value} = e.target 
-            setFormErrors({...formErrors, [id]: value })
+             const {id, value} = e.target 
+            setFormErrors({...formErrors, [id]: value }) 
             console.log('key up triggered')
         }
 
         const validate_name = (value) => {
             if (!value)
                 return 'A name is required'
-            else if (value.length > 2)
+            else if (value.length < 5)
                 return 'Must be a valid name'
             else 
             return null
@@ -85,9 +86,9 @@ function ContactFormsSection2() {
 
             if (!value)
                 return 'An email is required'
-            else if (!regex_email.text(value))
+           else if (!regex_email.test(value)) 
             return 'Must be a valid email address'
-            else return null
+            else return null 
         }
         const validate_comment = (value) => {
             if (!value)
@@ -119,14 +120,15 @@ function ContactFormsSection2() {
                     </div>
                 <div className="item-1">
                    
-                    <input  id="name" className={ (formErrors.name) ?  'error': '' }  type="text" value={contactForm.name}  onChange={handleChange}   placeholder="Your Name"  required />                    <div className="errorMessage"> {formErrors.name} </div>
+                    <input  id="name" className={ (formErrors.name) ?  'error': '' }  type="text" value={contactForm.name}  onChange={handleChange} onKeyUp={handleKeyUp}  placeholder="Your Name"  required />                    
+                    
+                    <div className="errorMessage"> {formErrors.name} </div>
                 </div>
                   
                 <div className="item-2">
                
                     <input id='email' className={ (formErrors.email) ?  'error': '' }  type='email'  value={contactForm.email}  onChange={handleChange}  placeholder='Your Mail' />
-                    <div className='errorMessage'> {formErrors.email} 
-                    </div>
+                    <div className='errorMessage'> {formErrors.email} </div>
 
                 </div>
                 <div className="item-3">

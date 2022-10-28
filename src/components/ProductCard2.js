@@ -1,6 +1,6 @@
 import React from 'react'
 
-import placeholderImageGray from './assets/images/featured-product/placeholder-W.png'
+
 import { NavLink } from 'react-router-dom'
 
 const ProductCard2 = ({item}) => {

@@ -28,7 +28,7 @@ const MobileGridCard = ({item}) => {
                                 <li><button className='productButton' ><i className="fa-light fa-code-compare fa-flip-vertical"></i></button></li>
                                 <li><button className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
                                 </ul>
-                                <div className="quickview-buttons"> <NavLink to="/productdetails" className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
+                                <div className="quickview-buttons"> <NavLink to={`/productdetails/${item.productName.replace(/ /gi, "-")}`}  className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
                                 </div>   
                             
                                 <div className="card-background">  </div>
@@ -78,7 +78,7 @@ const MobileGridCard = ({item}) => {
                             <li><button className='productButton' ><i className="fa-light fa-code-compare fa-flip-vertical"></i></button></li>
                             <li><button className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
                     </ul>
-                    <div className="quickview-buttons"> <NavLink to="/productdetails" className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
+                    <div className="quickview-buttons"> <NavLink to={`/productdetails/${item.productName.replace(/ /gi, "-")}`}  className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
                     </div>   
                 
                     <div className="card-background">  </div>
