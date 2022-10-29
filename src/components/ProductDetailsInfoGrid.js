@@ -57,7 +57,7 @@ export const ProductDetailsInfoGrid = ({products}) => {
                 <div className="color">
                     <h2>Color: </h2>
                 </div>
-                <div className="dropdown">
+                <div className="CART-dropdown">
                     <button className="btn  dropdown border border-dark " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Choose an Option
                     <i className="fa-regular fa-chevron-down ms-5"></i>
@@ -83,14 +83,15 @@ export const ProductDetailsInfoGrid = ({products}) => {
   
                      
                 </div>
-                <div className="cart-red-buttons"> <a href="#" className="add-cart-button ">ADD TO CART</a></div>   
+                <div className="cart-red-buttons "><button type="submit"  className="post-button">Add To Cart</button>
+                    </div> 
             </div>
        
            <div className="item-4">
                 <div className="share">
                     <h2>Share:  </h2>
                     <p>
-                     <div className="social-media-circle">  <i className="fa-brands fa-facebook-f"></i></div>
+                     <div className="social-media-circle"> <i className="fa-brands fa-facebook-f"></i></div>
                         <div className="social-media-circle">  <i className="fa-brands fa-instagram"></i></div>
                         <div className="social-media-circle"> <i className="fa-brands fa-twitter"></i></div>
                         <div className="social-media-circle">  <i className="fa-brands fa-google"></i></div>

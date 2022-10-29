@@ -5,9 +5,10 @@ import { useState } from 'react'
 // This is original code by Leah
 export const QuantityButton = () => {
    const [count, setCount] =  useState((countInitial) => {
-    console.log('run function')
     return 1
    })
+
+   
     function decrementCount() {
         setCount(prevCount =>
             prevCount - 1)
@@ -49,19 +50,7 @@ export const QuantityButton = () => {
    <button className='qbtn'   onClick={incrementCount}>+</button>
    </div>
 
-    {/*   <div className="input-group">
-                               <span className="input-group-btn">
-                                   <button type="button" className="btn btn-default btn-lg btn-number border border-dark" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                       <span className="glyphicon glyphicon-minus"></span>
-                                   </button>
-                               </span>
-                               <input  type="text"  name="quant[1]" className="form-control input-lg input-number border border-dark" value="1" min="1" max="10" />
-                               <span className="input-group-btn">
-                                   <button type="button" className="btn btn-default btn-lg btn-number border border-dark" data-type="plus" data-field="quant[1]">
-                                       <span className="glyphicon glyphicon-plus"></span>
-                                   </button>
-                               </span>
-                           </div>*/}
+   
    </>
   )
 }

@@ -26,7 +26,6 @@ function ProductDetailsView() {
     <TopBannerDiscount />
     <BreadCrumbsSections currentPage="Product Details" /> 
     <ProductDetailsInfoGrid products={featuredProducts} />
-   <QuantityButton />
     <Footer />   
     </div>
   )
