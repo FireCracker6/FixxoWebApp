@@ -1946,6 +1946,7 @@ a.quickview-button:hover {
   .product-gallery-grid .card {
     border: none !important;
     overflow: hidden;
+    width: 255px;
   }
   .product-grid {
     width: 100%;
@@ -3548,10 +3549,8 @@ a.quickview-button:hover {
   }
 }
 .products-gallery-header > .container {
-  max-width: 1110px;
-  width: 100%;
+  max-width: 1200px;
 }
-
 .products-gallery-header > .container .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3563,13 +3562,11 @@ a.quickview-button:hover {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
 .products-gallery-header > .container .header h2 {
   font-size: 1.25rem;
   font-family: "Poppin", sans-serif;
   font-weight: 800;
 }
-
 .products-gallery-header > .container .header .item-2 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3582,7 +3579,6 @@ a.quickview-button:hover {
           align-items: center;
   width: 55px;
 }
-
 .products-gallery-header > .container .header .item-2 .circle {
   font-size: 0.6rem;
   width: 20px;
@@ -3616,9 +3612,40 @@ a.quickview-button:hover {
           box-shadow: 0px 0px 5px 5px rgba(127, 127, 127, 0.06);
 }
 
+@media (min-width: 768px) {
+  .products-gallery-header > .container .header {
+    width: 100%;
+  }
+  .products-gallery-header > .container .header .item-1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  .products-gallery-header > .container .header .item-2 {
+    display: none;
+  }
+}
 @media (min-width: 1200px) {
   .products-gallery-header > .container .header {
     width: 100%;
+  }
+  .products-gallery-header > .container .header .item-1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    width: 100%;
+  }
+  .products-gallery-header > .container .header .item-2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 /* detail information product */

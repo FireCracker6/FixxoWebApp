@@ -371,12 +371,14 @@
     column-gap: 1.875rem;
     row-gap: 1.4375rem;
     overflow: hidden;
-  
+    
+ 
      
      }
      .product-gallery-grid .card {
         border: none !important;
         overflow: hidden;
+        width: 255px;
     }
 
     .product-grid {

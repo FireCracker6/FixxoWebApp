@@ -2,6 +2,8 @@ import React from 'react'
 import penguin from './assets/images/featured-product/yoga.png'
 
 export const ProductDetailsImages = (item) => {
+
+  
   return (
     <div className="grid-container">
     <div className="item-1">

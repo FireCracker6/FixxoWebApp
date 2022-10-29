@@ -4,11 +4,15 @@ import { useState } from 'react'
 import { ProductDetailsImages } from './ProductDetailsImages'
 import { QuantityButton } from './QuantityButton'
 import { DetailInfoProduct } from './DetailInfoProduct'
+import { NavItem } from 'react-bootstrap'
 
 
 export const ProductDetailsInfoGrid = ({products}) => {
 
-    
+    const [featuredProducts, setFeaturedProducts ] = useState([
+        {id: 1, productName: "Penguin Blouse", category: "Fashion", price: "$20.50", rating: 5, img: "https://images.pexels.com/photos/1299391/pexels-photo-1299391.jpeg?cs=srgb&dl=pexels-david-dibert-1299391.jpg&fm=jpg"},
+       
+      ])
 
     const params = useParams()
 
@@ -20,7 +24,9 @@ export const ProductDetailsInfoGrid = ({products}) => {
    
    
             {/* need to get images dynamically */}
-            <ProductDetailsImages  /> 
+           <ProductDetailsImages  /> 
+ 
+          {
 
 
   
@@ -102,7 +108,7 @@ export const ProductDetailsInfoGrid = ({products}) => {
             </div> 
            </div>
         </div>
-    {/* product details info */}
+   /*  {/* product details info */} */
  
     </div>
 

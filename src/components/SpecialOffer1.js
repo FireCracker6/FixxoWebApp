@@ -36,7 +36,7 @@ const SpecialOffer1 =({products})=> {
      
               {
 
-              products.map(product =>     <MobileGridCard key={product.id} item={product} />) 
+              products.map(product =>     <ProductCard2 key={product.id} item={product} />) 
               
 
               }
