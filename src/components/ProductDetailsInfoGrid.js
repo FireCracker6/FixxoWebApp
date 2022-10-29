@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { ProductDetailsImages } from './ProductDetailsImages'
 import { QuantityButton } from './QuantityButton'
-import { DeailInfoProduct } from './DeailInfoProduct'
+import { DetailInfoProduct } from './DetailInfoProduct'
 
 
 export const ProductDetailsInfoGrid = ({products}) => {
@@ -15,7 +15,7 @@ export const ProductDetailsInfoGrid = ({products}) => {
     
   return (
     <section className="product-detail-section">
-    <div className="container justify-content-center">
+    <div className="container">
     
    
    
@@ -106,7 +106,7 @@ export const ProductDetailsInfoGrid = ({products}) => {
  
     </div>
 
-    <DeailInfoProduct />
+    <DetailInfoProduct />
   
 </section>
   )

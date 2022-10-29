@@ -1,15 +1,14 @@
 import React from 'react'
-import * as bootstrap from 'bootstrap';
 import { ProductDetailInfoText } from './sections/ProductDetailInfoText';
-window.bootstrap = bootstrap;
 
 
-export const DeailInfoProduct = () => {
+
+export const DetailInfoProduct = () => {
  
     
   return (
     
-    <>
+    <section className='ProductDetail-Info'>
     <div className="container d-grid">
     <nav>
   <div className="nav nav-tabs" id="nav-tab" role="tablist">
@@ -26,6 +25,6 @@ export const DeailInfoProduct = () => {
   <div className="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabIndex="0"><ProductDetailInfoText /></div>
 </div>
     </div>
-    </>
+    </section>
   )
 }

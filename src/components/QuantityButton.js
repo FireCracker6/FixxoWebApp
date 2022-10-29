@@ -45,9 +45,9 @@ export const QuantityButton = () => {
    
    <>
    <div className='quantity-group'>
-   <button className='qbtn' onClick={decrementCount} >-</button>
+   <button className='qbtn' onClick={decrementCount} ><i class="fa-regular fa-minus"></i></button>
    <input type="text" className='q-text' value={count} disabled/>  
-   <button className='qbtn'   onClick={incrementCount}>+</button>
+   <button className='qbtn'   onClick={incrementCount}><i class="fa-regular fa-plus"></i></button>
    </div>
 
    
