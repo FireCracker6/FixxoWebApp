@@ -466,6 +466,10 @@
 
 .product-grid .card >.card-body {
     text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+   
+    width: 257px;
 
     h5 {
         font-family: $font-poppins;
