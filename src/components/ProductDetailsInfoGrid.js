@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { ProductDetailsImages } from './ProductDetailsImages'
 import { QuantityButton } from './QuantityButton'
+import { DeailInfoProduct } from './DeailInfoProduct'
 
 
 export const ProductDetailsInfoGrid = ({products}) => {
@@ -101,11 +102,11 @@ export const ProductDetailsInfoGrid = ({products}) => {
             </div> 
            </div>
         </div>
-
-  
+    {/* product details info */}
+ 
     </div>
 
-
+    <DeailInfoProduct />
   
 </section>
   )
