@@ -97,13 +97,15 @@ export const ProductDetailsInfoGrid = ({products}) => {
            <div className="item-4">
                 <div className="share">
                     <h2>Share:  </h2>
-                    <p>
+                 {/*    <p> */}
+                 <div className="social">
                      <div className="social-media-circle"> <i className="fa-brands fa-facebook-f"></i></div>
                         <div className="social-media-circle">  <i className="fa-brands fa-instagram"></i></div>
                         <div className="social-media-circle"> <i className="fa-brands fa-twitter"></i></div>
                         <div className="social-media-circle">  <i className="fa-brands fa-google"></i></div>
                         <div className="social-media-circle">  <i className="fa-brands fa-linkedin"></i></div>
-                        </p>
+                        </div>
+                     {/*    </p> */}
                 </div>
             </div> 
            </div>

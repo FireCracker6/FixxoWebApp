@@ -18,15 +18,15 @@ export const ProductDetailGalleryHeader = ({title, products}) => {
   
   return width < breakpoint ? 
     <>
-    <div class="products-gallery-header">
-    <div class="container">
-    <div class="header">
-    <div class="item-1">
+    <div className="products-gallery-header">
+    <div className="container">
+    <div className="header">
+    <div className="item-1">
         <h2>{title}</h2>
     </div>
-    <div class="item-2">
-    <button class="circle"><i class="fa-solid fa-chevron-right fa-flip-horizontal"></i></button>
-    <button class="circle"><i class="fa-solid fa-chevron-right "></i></button>
+    <div className="item-2">
+    <button className="circle"><i className="fa-solid fa-chevron-right fa-flip-horizontal"></i></button>
+    <button className="circle"><i className="fa-solid fa-chevron-right "></i></button>
     </div>
     </div>
   
@@ -50,15 +50,15 @@ products.map(product =>     <ProductCard2 key={product.id} item={product} />)
     </> : 
 
 <>
-<div class="products-gallery-header">
-<div class="container">
-<div class="header">
-<div class="item-1">
+<div className="products-gallery-header">
+<div className="container">
+<div className="header">
+<div className="item-1">
     <h2>{title}</h2>
 </div>
-<div class="item-2">
-    <button class="circle"><i class="fa-solid fa-chevron-right fa-flip-horizontal"></i></button>
-    <button class="circle"><i class="fa-solid fa-chevron-right "></i></button>
+<div className="item-2">
+    <button className="circle"><i className="fa-solid fa-chevron-right fa-flip-horizontal"></i></button>
+    <button className="circle"><i className="fa-solid fa-chevron-right "></i></button>
 </div>
 </div>
 

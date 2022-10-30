@@ -2,8 +2,10 @@ import React from 'react'
 import { useState } from 'react'
 
 function ContactFormsSection2() {
-    const initFormValues = ({name: ``, email: ``, comments: ``})
-    const [contactForm, setContactForm] = useState ({initFormValues})
+
+
+    const [initFormValues, setInitFormValues] = useState ({name: ``, email: ``, comment: ``})
+    const [contactForm, setContactForm] = useState (initFormValues)
 
     const [formErrors, setFormErrors] = useState({})
     const [canSubmit, setCanSubmit] = useState(false)
@@ -18,7 +20,7 @@ function ContactFormsSection2() {
 
             errors.name = validate_name(contactForm.name)
             errors.email = validate_email(contactForm.email)
-            errors.comments = validate_comment(contactForm.comments)
+            errors.comment = validate_comment(contactForm.comment)
             return errors
         }
 
@@ -58,9 +60,11 @@ function ContactFormsSection2() {
             e.preventDefault();
             setFormErrors(validate(e, contactForm))
 
-            if (formErrors.name === null && formErrors.email === null && formErrors.comment === null) {
+            if (formErrors.name === null || formErrors.email === null || formErrors.comment === null) {
                 setCanSubmit(true)
                 setContactForm(initFormValues)
+                console.log("saasdasd")
+                
             }
            setContactForm(initFormValues)
 
@@ -68,16 +72,16 @@ function ContactFormsSection2() {
 
         const handleKeyUp = (e) => {
 
-             const {id, value} = e.target 
-            setFormErrors({...formErrors, [id]: value }) 
-            console.log('key up triggered')
+            const {id, value} = e.target 
+
+        setFormErrors({...formErrors, [id]: validate(e) })
         }
 
         const validate_name = (value) => {
             if (!value)
                 return 'A name is required'
             else if (value.length < 5)
-                return 'Must be a valid name'
+                return 'Must be a valid name' 
             else 
             return null
         }
@@ -92,7 +96,9 @@ function ContactFormsSection2() {
         }
         const validate_comment = (value) => {
             if (!value)
-                return 'A comment is required'
+            return 'A comment is required'
+        else if (value.length < 5)
+            return 'Must be a valid comment' 
         }
             
       
@@ -120,20 +126,20 @@ function ContactFormsSection2() {
                     </div>
                 <div className="item-1">
                    
-                    <input  id="name" className={ (formErrors.name) ?  'error': '' }  type="text" value={contactForm.name}  onChange={handleChange} onKeyUp={handleKeyUp}  placeholder="Your Name"  required />                    
+                  <input  id="name" className={ (formErrors.name) ?  'error': '' }  type="text"  value={contactForm.name}  onChange={handleChange}  onKeyUp={handleKeyUp}   placeholder="Your Name"   />                 
                     
                     <div className="errorMessage"> {formErrors.name} </div>
                 </div>
                   
                 <div className="item-2">
                
-                    <input id='email' className={ (formErrors.email) ?  'error': '' }  type='email'  value={contactForm.email}  onChange={handleChange}  placeholder='Your Mail' />
+                    <input id='email' className={ (formErrors.email) ?  'error': '' }  type='email'   value={contactForm.email}   onChange={handleChange} onKeyUp={handleKeyUp}  placeholder='Your Mail' /> 
                     <div className='errorMessage'> {formErrors.email} </div>
 
                 </div>
                 <div className="item-3">
-                      <textarea className={ (formErrors.comment) ?  'error': '' }  placeholder="Comments"value={contactForm.comments}   onChange={handleChange}  id="comments" rows="8"></textarea>
-                        <div className='errorMessage'> {formErrors.comments} 
+                      <textarea  className={ (formErrors.comment) ?  'error': '' }   placeholder="Comments"  value={contactForm.comment}  onChange={handleChange}  onKeyUp={handleKeyUp}  id="comment" rows="8"></textarea>
+                        <div className='errorMessage'> {formErrors.comment} 
                         </div>
             
                       <div className="cart-red-buttons mt-4"><button type="submit"  className=" post-button">Post Comments</button>

@@ -1935,12 +1935,10 @@ a.quickview-button:hover {
   }
   .product-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1115px;
-    -webkit-column-gap: 1.875rem;
-       -moz-column-gap: 1.875rem;
-            column-gap: 1.875rem;
-    row-gap: 1.4375rem;
+    /*  grid-template-columns: repeat(4, 1fr); */
+    /*     max-width: 1115px; */
+    /*   column-gap: 1.875rem;
+      row-gap: 1.4375rem; */
     overflow: hidden;
   }
   .product-gallery-grid .card {
@@ -3273,7 +3271,7 @@ a.quickview-button:hover {
   font-family: "Poppin", sans-serif;
   font-weight: 400;
 }
-.product-detail-section > .container .product-detail-description .prod-desc-2 .item-4 .share p {
+.product-detail-section > .container .product-detail-description .prod-desc-2 .item-4 .share .social {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
