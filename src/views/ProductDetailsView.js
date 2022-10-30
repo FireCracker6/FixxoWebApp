@@ -15,14 +15,15 @@ function ProductDetailsView() {
     {id: 4, productName: "Modern Black Blouse", category: "Fashion", price: "$42.90", rating: 5, img: "https://images.pexels.com/photos/9393990/pexels-photo-9393990.jpeg?cs=srgb&dl=pexels-chris-f-9393990.jpg&fm=jpg"}
 
   ])
-  
+
   return (
+  
     <div>
 <NavbarGlobal /> 
 
    <div className="container mt-5">
     
-     
+    
    
     </div> 
     <TopBannerDiscount />

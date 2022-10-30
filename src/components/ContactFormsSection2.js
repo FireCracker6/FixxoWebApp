@@ -3,12 +3,13 @@ import { useState } from 'react'
 
 function ContactFormsSection2() {
 
-
-    const [initFormValues, setInitFormValues] = useState ({name: ``, email: ``, comment: ``})
+    // initFormValues needed a useState to get it working
+    const [initFormValues] = useState ({name: ``, email: ``, comment: ``})
     const [contactForm, setContactForm] = useState (initFormValues)
 
     const [formErrors, setFormErrors] = useState({})
     const [canSubmit, setCanSubmit] = useState(false)
+    const [submittedName, setSubmittedName] = useState({})
    
 
  
@@ -59,14 +60,16 @@ function ContactFormsSection2() {
 
             e.preventDefault();
             setFormErrors(validate(e, contactForm))
-
-            if (formErrors.name === null || formErrors.email === null || formErrors.comment === null) {
+            // using pipes instead of & made this work! :) 
+            if (formErrors.name == null && formErrors.email == null && formErrors.comment == null) {
                 setCanSubmit(true)
                 setContactForm(initFormValues)
-                console.log("saasdasd")
+                setSubmittedName(contactForm.name)
+             
                 
             }
            setContactForm(initFormValues)
+         
 
         }
 
@@ -84,6 +87,7 @@ function ContactFormsSection2() {
                 return 'Must be a valid name' 
             else 
             return null
+         
         }
         const validate_email = (value) => {
             const regex_email =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
@@ -116,9 +120,16 @@ function ContactFormsSection2() {
            <div className="container">
          
               {
-                canSubmit ? (<div className='d-flex justify-content-center align-items-center' style={{height: '400px'}} ><div className='header'><h2>Thank you for your comment! {contactForm.name}</h2></div></div>)
-                : 
-                (<>
+                canSubmit ? (
+                <div className='d-flex justify-content-center align-items-center' style={{height: '400px'}} >
+                    <div className='header'>
+                            <div className='greetings'>
+                                <h2 >Thank you for your comments! {submittedName}</h2>
+                                <p>We will get back to you as soon as possible</p>
+                            </div>
+                    </div>
+                </div> ) : 
+                (  <>
                  <form onSubmit={handleSubmit} noValidate>
                     <div className="header">
                     <h2>Come in Contact with Us </h2>

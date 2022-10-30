@@ -15,6 +15,7 @@ import Specialty from '../components/Specialty';
 import NavbarGlobal from '../components/NavbarGlobal';
 import ProductGridSection from '../components/sections/ProductGridSection';
 import DiscountCard2 from '../components/DiscountCardSection';
+import { ProductDetailsImages } from '../components/ProductDetailsImages';
 import { useState } from 'react';
 
 
@@ -33,6 +34,7 @@ const HomeView = () => {
     {id: 4, productName: "Modern Black Blouse", category: "Fashion", price: "$42.90", rating: 5, img: "https://images.pexels.com/photos/9393990/pexels-photo-9393990.jpeg?cs=srgb&dl=pexels-chris-f-9393990.jpg&fm=jpg"}
 
   ])
+
   const [topProducts, setTopProducts ] = useState([
    
     {id: 5, productName: "Penguin Blouse", category: "Fashion", price: "$20.50", rating: 5, img: "https://images.pexels.com/photos/1299391/pexels-photo-1299391.jpeg?cs=srgb&dl=pexels-david-dibert-1299391.jpg&fm=jpg"},

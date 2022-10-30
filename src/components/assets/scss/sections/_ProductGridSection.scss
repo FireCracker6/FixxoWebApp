@@ -104,7 +104,7 @@
 
 
 .card-body {
-    text-align: left;
+    text-align: center;
     margin-top: -20px;
     margin-left: 10px;
     margin-bottom: -30px;
@@ -130,7 +130,7 @@
 .card-body .price {
     margin-top: 0.3rem;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 
 }
 .card-body .price .old-price {
@@ -395,59 +395,114 @@
 
     .product-grid .card {
     border: none !important;
+
+    .card-menu {
+        position: absolute;
+     
+        width: 50px;
+        z-index: 1;
+        margin-top: 0rem;
+        left: -90000%;
+     
+        right: 1rem;
+        list-style: none;
+    
+        padding: .85rem;
+        font-size: 1.25rem;
+        border-radius: $border-radius-medium;
+    
+        transition:  0.2s ease-in-out;
+    
+                .productButton {
+                    background-color: $color-white;
+                    display: flex;
+                    color: black;
+                    height: 39px;
+                    width: 39px;
+                    border: none !important;
+                    border-radius: 50%;
+                    display: inline-block;
+                    justify-items: center;
+                    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2) ;
+                    align-items: center;
+                    text-align: center;
+                    position: relative;
+                    line-height: 3em;
+                    margin-right: 5px;
+                    margin-left: 5px;
+                    overflow: hidden;
+    
+                    .productIcon {
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        
+                    }
+            }
+
+            &:hover {
+                left: 200px;
+            
+            }
+    
+    }
+    > .card-body {
+        text-align: center;
+        margin-left: 0;
+        padding-left: 0;
+    
+        width: 257px;
+    
+        h5 {
+            font-family: $font-poppins;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: $color-font-featured-category;
+            margin-top: 20px;
+        }
+    
+        h4 {
+            font-family:  $font-poppins;
+            font-size: 0.925rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color:  $color-font-featured-category;
+        }
+    
+        .text-theme {
+            color: $color-red-0;
+        }
+    
+        .price {
+            margin-top: 0.3rem;
+            display: flex;
+            justify-content: center;
+    
+            .old-price {
+                font-size: 1.125rem;
+                font-weight: 400;
+                letter-spacing: 0.5px;
+                text-decoration: line-through;
+                padding-right: 0.5rem;
+                display: none;
+            }
+    
+            .new-price {
+                font-size: 1.125rem;
+                font-weight: 800;
+                letter-spacing: 0.5px;
+            }
+        
+        }
+    }
+    
    
 }
 
-.product-grid .card .card-menu {
-    position: absolute;
- 
-    width: 50px;
-    z-index: 1;
-    margin-top: 0rem;
-    left: -90000%;
- 
-    right: 1rem;
-    list-style: none;
 
-    padding: .85rem;
-    font-size: 1.25rem;
-    border-radius: $border-radius-medium;
 
-    transition:  0.2s ease-in-out;
-
-            .productButton {
-                background-color: $color-white;
-                display: flex;
-                color: black;
-                height: 39px;
-                width: 39px;
-                border: none !important;
-                border-radius: 50%;
-                display: inline-block;
-                justify-items: center;
-                box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2) ;
-                align-items: center;
-                text-align: center;
-                position: relative;
-                line-height: 3em;
-                margin-right: 5px;
-                margin-left: 5px;
-                overflow: hidden;
-
-                .productIcon {
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    
-                }
-        }
-
-}
-.product-grid .card-menu:hover {
-    left: 200px;
-
-}
 
 .product-grid .card-menu:active .productButton{
             border: none !important;
@@ -466,56 +521,6 @@
         }
 
 
-.product-grid .card >.card-body {
-    text-align: center;
-    margin-left: 0;
-    padding-left: 0;
-   
-    width: 257px;
-
-    h5 {
-        font-family: $font-poppins;
-        font-size: 0.9rem;
-        font-weight: 600;
-        letter-spacing: 2px;
-        color: $color-font-featured-category;
-        margin-top: 20px;
-    }
-
-    h4 {
-        font-family:  $font-poppins;
-        font-size: 0.925rem;
-        font-weight: 800;
-        letter-spacing: 2px;
-        color:  $color-font-featured-category;
-    }
-
-    .text-theme {
-        color: $color-red-0;
-    }
-
-    .price {
-        margin-top: 0.3rem;
-        display: flex;
-        justify-content: center;
-
-        .old-price {
-            font-size: 1.125rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            text-decoration: line-through;
-            padding-right: 0.5rem;
-            display: none;
-        }
-
-        .new-price {
-            font-size: 1.125rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-        }
-    
-    }
-}
 
 
 
@@ -676,18 +681,16 @@
     .card .featured-image {
         height: 200px;
         display: grid;
+        img {
+            display: grid;
+            filter: grayscale(80%);
+            width:300px;
+            height:200px;
+            object-fit: cover;       
+        }
        
     }
-    .card .featured-image img {
-        display: grid;
-        filter: grayscale(80%);
-        width:300px;
-        height:200px;
-        object-fit: cover;
-       ;
    
-        
-    }
 
     .card:hover .card-background .featured-image-dark img {
         filter: contrast(110%) brightness(120%) grayscale(0%);

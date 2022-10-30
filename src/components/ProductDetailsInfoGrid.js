@@ -5,14 +5,13 @@ import { ProductDetailsImages } from './ProductDetailsImages'
 import { QuantityButton } from './QuantityButton'
 import { DetailInfoProduct } from './DetailInfoProduct'
 import { NavItem } from 'react-bootstrap'
+import ProductCard2 from './ProductCard2'
+
 
 
 export const ProductDetailsInfoGrid = ({products}) => {
 
-    const [featuredProducts, setFeaturedProducts ] = useState([
-        {id: 1, productName: "Penguin Blouse", category: "Fashion", price: "$20.50", rating: 5, img: "https://images.pexels.com/photos/1299391/pexels-photo-1299391.jpeg?cs=srgb&dl=pexels-david-dibert-1299391.jpg&fm=jpg"},
-       
-      ])
+   
 
     const params = useParams()
 
@@ -24,9 +23,17 @@ export const ProductDetailsInfoGrid = ({products}) => {
    
    
             {/* need to get images dynamically */}
-           <ProductDetailsImages  /> 
+        {/*    <ProductDetailsImages  />  */}
+
+  
+
+              <ProductDetailsImages />
+
+
+
+
  
-          {
+       
 
 
   
@@ -42,7 +49,7 @@ export const ProductDetailsInfoGrid = ({products}) => {
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>
               </div>  
-              <h3>$35.00</h3>
+              <h3>{params.price}</h3>
               <p>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (read more) </p>
            </div>
            <div className="prod-desc-2">
@@ -110,7 +117,7 @@ export const ProductDetailsInfoGrid = ({products}) => {
             </div> 
            </div>
         </div>
-   /*  {/* product details info */} */
+
  
     </div>
 

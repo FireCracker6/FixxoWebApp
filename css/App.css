@@ -1657,7 +1657,7 @@ a.__btn-background.active {
 }
 
 .card-body {
-  text-align: left;
+  text-align: center;
   margin-top: -20px;
   margin-left: 10px;
   margin-bottom: -30px;
@@ -1688,9 +1688,9 @@ a.__btn-background.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .card-body .price .old-price {
@@ -2005,21 +2005,8 @@ a.quickview-button:hover {
         -ms-flex-align: center;
             align-items: center;
   }
-  .product-grid .card-menu:hover {
+  .product-grid .card .card-menu:hover {
     left: 200px;
-  }
-  .product-grid .card-menu:active .productButton {
-    border: none !important;
-  }
-  .product-grid .card-menu button {
-    border: none !important;
-  }
-  .product-grid .card:hover .card-menu {
-    display: block;
-    top: 0;
-    left: 188px;
-    -webkit-transition: 0.05s ease-in-out;
-    transition: 0.05s ease-in-out;
   }
   .product-grid .card > .card-body {
     text-align: center;
@@ -2066,6 +2053,19 @@ a.quickview-button:hover {
     font-size: 1.125rem;
     font-weight: 800;
     letter-spacing: 0.5px;
+  }
+  .product-grid .card-menu:active .productButton {
+    border: none !important;
+  }
+  .product-grid .card-menu button {
+    border: none !important;
+  }
+  .product-grid .card:hover .card-menu {
+    display: block;
+    top: 0;
+    left: 188px;
+    -webkit-transition: 0.05s ease-in-out;
+    transition: 0.05s ease-in-out;
   }
   .product-grid .quickview-buttons {
     position: absolute;
@@ -3722,6 +3722,27 @@ a.quickview-button:hover {
   margin-bottom: 2rem;
 }
 
+.greetings {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #dfece7;
+  height: 100px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 2%;
+  padding-bottom: 200px;
+  border: 1px solid #b7c6c1;
+}
+.greetings p {
+  text-align: center;
+  font-weight: 600;
+}
+
 .forms-input > .container {
   /*   max-width: 1110px; */
   display: -webkit-box;
@@ -3903,6 +3924,7 @@ a.quickview-button:hover {
   color: #FFFFFF;
   -webkit-box-shadow: 0px 5px 10px 5px rgba(183, 158, 158, 0.242);
           box-shadow: 0px 5px 10px 5px rgba(183, 158, 158, 0.242);
+  cursor: pointer;
 }
 .home-footer > .item-1 .item:hover img {
   -webkit-filter: invert(100%);
@@ -3961,7 +3983,6 @@ footer {
   border-top-width: 1px;
   border-top-style: solid;
 }
-
 footer .social-media {
   width: 100%;
   display: inline-block;
@@ -3973,7 +3994,6 @@ footer .social-media {
   margin-top: 2rem;
   letter-spacing: 20px;
 }
-
 footer .social-media a {
   color: #080C24;
   text-decoration: none;

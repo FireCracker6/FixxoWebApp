@@ -12,14 +12,7 @@ import BreadCrumbSections from '../components/sections/BreadCrumbsSections'
 function Contacts() {
   return (
     <>
-  {/*   Breadcrumbs section  */}
-{/*    <BreadCrumbsSections currentPage="Contacts" />  */}
 
-{/* <BreadCrumbsSections currentPage="Product Details" /> */}
-
-   {/*    section map */}
-       
- {/*    <MapSection />  */}
  <div className="container" style={{height: "100px"}}></div>
 <BreadCrumbSections currentPage="Contacts"/>
 <MapSection2 />
