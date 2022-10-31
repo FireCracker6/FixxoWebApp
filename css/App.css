@@ -3745,9 +3745,7 @@ a.quickview-button:hover {
 
 .forms-input > .container {
   /*   max-width: 1110px; */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;

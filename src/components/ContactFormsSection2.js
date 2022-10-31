@@ -1,111 +1,87 @@
 import React from 'react'
 import { useState } from 'react'
-
+import { submitData, validate } from './scrips/submitAndValidation'
 function ContactFormsSection2() {
 
-    // initFormValues needed a useState to get it working
-    const [initFormValues] = useState ({name: ``, email: ``, comment: ``})
-    const [contactForm, setContactForm] = useState (initFormValues)
-
-    const [formErrors, setFormErrors] = useState({})
-    const [canSubmit, setCanSubmit] = useState(false)
-    const [submittedName, setSubmittedName] = useState({})
-   
-
- 
-
-    const validate = (e, contactForm = null) => {
-
-        if (e.type === 'submit') {
-            const errors = {}
-
-            errors.name = validate_name(contactForm.name)
-            errors.email = validate_email(contactForm.email)
-            errors.comment = validate_comment(contactForm.comment)
-            return errors
-        }
-
-        else {
-        const {id, value} = e.target
-
-        switch(id) {
-            case 'name':
-                return validate_name(value)
- 
-            case 'email':
-                return validate_email(value)
- 
-            case 'comment':
-                return validate_comment(value)
-             
-    
-        }
-
-    }
-     
-
-      return validate
-    }
-
+    let currentPage = "Contact Us"
+    window.top.document.title = `${currentPage} || Fixxo` 
+  
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [comments, setComments] = useState('')
+    const [errors, setErrors] = useState({})
+    const [submitted, setSubmitted] = useState(false)
+    const [failedSubmit, setFailedSubmit] = useState(false)
+  
     const handleChange = (e) => {
-        const {id, value} = e.target 
-        setContactForm({...contactForm, [id]: value })
-        setFormErrors({...formErrors, [id]: validate(e) })
+      const {id, value} = e.target
+     
+       switch(id) {
+        case 'name':
+          setName(value)
+          break
+        case 'email':
+          setEmail(value)
+          break
+        case 'comments':
+          setComments(value)
+          break
+      } 
+  
+      setErrors({...errors, [id]: validate(e)})
     }
-
+  
 
  
        
-        const handleSubmit = (e) => {
+        const handleSubmit = async (e) => {
 
-            e.preventDefault();
-            setFormErrors(validate(e, contactForm))
-            // using pipes instead of & made this work! :) 
-            if (formErrors.name == null && formErrors.email == null && formErrors.comment == null) {
-                setCanSubmit(true)
-                setContactForm(initFormValues)
-                setSubmittedName(contactForm.name)
+            e.preventDefault()
+
+            setFailedSubmit(false)
+            setSubmitted(false)
+
+
+            setErrors(validate(e, {name, email, comments}))
+           
+            if (errors.name === null && errors.email === null && errors.comments === null) {
+               
+              let json = JSON.stringify({name, email, comments})
+
+                setName('')
+                setEmail('')
+                setComments('')
+                setErrors({})
+
+             
+             
+              if  (await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json,)) {
+                setSubmitted(true)
+                setFailedSubmit(false)
+              }
+              else {
+              setSubmitted(false)
+              setFailedSubmit(true)
+            }
+                
+            
              
                 
             }
-           setContactForm(initFormValues)
-         
-
+            else {
+                setSubmitted(false)
+            } 
         }
 
+    
         const handleKeyUp = (e) => {
 
             const {id, value} = e.target 
 
-        setFormErrors({...formErrors, [id]: validate(e) })
+        setErrors({...errors, [id]: validate(e) })
         }
 
-        const validate_name = (value) => {
-            if (!value)
-                return 'A name is required'
-            else if (value.length < 5)
-                return 'Must be a valid name' 
-            else 
-            return null
-         
-        }
-        const validate_email = (value) => {
-            const regex_email =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-
-            if (!value)
-                return 'An email is required'
-           else if (!regex_email.test(value)) 
-            return 'Must be a valid email address'
-            else return null 
-        }
-        const validate_comment = (value) => {
-            if (!value)
-            return 'A comment is required'
-        else if (value.length < 5)
-            return 'Must be a valid comment' 
-        }
-            
-      
+       
        
     
   return (
@@ -120,16 +96,32 @@ function ContactFormsSection2() {
            <div className="container">
          
               {
-                canSubmit ? (
-                <div className='d-flex justify-content-center align-items-center' style={{height: '400px'}} >
+                submitted ? (
+                <div className='alert alert-success text-center'  >
                     <div className='header'>
-                            <div className='greetings'>
-                                <h2 >Thank you for your comments! {submittedName}</h2>
+                           
+                                <h2 >Thank you for your comments!</h2>
                                 <p>We will get back to you as soon as possible</p>
-                            </div>
+                         
                     </div>
-                </div> ) : 
-                (  <>
+                </div> )  : (<></>)
+}    
+
+{
+                failedSubmit ? (
+                <div className='alert alert-danger text-center'  >
+                    <div className='header'>
+                            
+                                <h2 >Something went wrong!</h2>
+                                <p>We couldn't submit your comments right now.</p>
+                           
+                    </div>
+                </div> ) : (<></>)
+}
+
+                
+   
+              
                  <form onSubmit={handleSubmit} noValidate>
                     <div className="header">
                     <h2>Come in Contact with Us </h2>
@@ -137,20 +129,20 @@ function ContactFormsSection2() {
                     </div>
                 <div className="item-1">
                    
-                  <input  id="name" className={ (formErrors.name) ?  'error': '' }  type="text"  value={contactForm.name}  onChange={handleChange}  onKeyUp={handleKeyUp}   placeholder="Your Name"   />                 
+                  <input  id="name" className={ (errors.name) ?  'error': '' }  type="text"  value={name}  onChange={handleChange}  onKeyUp={handleKeyUp}   placeholder="Your Name"   />                 
                     
-                    <div className="errorMessage"> {formErrors.name} </div>
+                    <div className="errorMessage"> {errors.name} </div>
                 </div>
                   
                 <div className="item-2">
                
-                    <input id='email' className={ (formErrors.email) ?  'error': '' }  type='email'   value={contactForm.email}   onChange={handleChange} onKeyUp={handleKeyUp}  placeholder='Your Mail' /> 
-                    <div className='errorMessage'> {formErrors.email} </div>
+                    <input id='email' className={ (errors.email) ?  'error': '' }  type='email'   value={email}   onChange={handleChange} onKeyUp={handleKeyUp}  placeholder='Your Mail' /> 
+                    <div className='errorMessage'> {errors.email} </div>
 
                 </div>
                 <div className="item-3">
-                      <textarea  className={ (formErrors.comment) ?  'error': '' }   placeholder="Comments"  value={contactForm.comment}  onChange={handleChange}  onKeyUp={handleKeyUp}  id="comment" rows="8"></textarea>
-                        <div className='errorMessage'> {formErrors.comment} 
+                      <textarea  className={ (errors.comments) ?  'error': '' }   placeholder="Comments"  value={comments}  onChange={handleChange}  onKeyUp={handleKeyUp}  id="comments" rows="8"></textarea>
+                        <div className='errorMessage'> {errors.comments} 
                         </div>
             
                       <div className="cart-red-buttons mt-4"><button type="submit"  className=" post-button">Post Comments</button>
@@ -158,9 +150,9 @@ function ContactFormsSection2() {
                 </div>
              
        </form>
-                </>)
-              }
-           </div>
+       
+
+           </div> 
        </div>
 
        

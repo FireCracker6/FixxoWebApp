@@ -41,6 +41,7 @@ export const ProductDetailsInfoGrid = ({products}) => {
         <div className="product-detail-description">
            <div className="prod-desc-1">
             <h2>{params.name}</h2>
+         
             <p><small>SKU: 12345670 BRAND: The Northland</small></p>
             <div className="text-theme">
                 <i className="fa-sharp fa-solid fa-star"></i>
