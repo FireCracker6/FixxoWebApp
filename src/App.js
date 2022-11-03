@@ -41,7 +41,7 @@ function App() {
     fetchAllProducts()
 
      const fetchFeaturedProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')
+      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')
       setProducts({...products, featuredProducts: await result.json()})
       console.log(result)
     
@@ -75,7 +75,7 @@ function App() {
     <Routes>
       <Route path='/' element={<HomeView/>}/>
       <Route path='/products' element={<ProductsView   /> }/>
-      <Route path='/productdetails/:name' element={<ProductDetailsView />}/>
+      <Route path='/productdetails/:articleNumber' element={<ProductDetailsView />}/>
       <Route path='/categories' element={<CategoriesView />}/>
       <Route path='/contacts' element={<ContactsView />}/>
       <Route path='/*' element={<NotFoundView />}/>

@@ -15,6 +15,7 @@ const ProductCard2 = ({item}) => {
   const addToCart = (e) => {
     console.log("added to Cart")
   }
+
   return (
     <>
 
@@ -30,12 +31,11 @@ const ProductCard2 = ({item}) => {
                       <li><button  onClick={addToCompare} className='productButton' ><i className="fa-light fa-code-compare fa-flip-vertical"></i></button></li>
                       <li><button onClick={addToCart}  className='productButton'><i className="fa-light fa-bag-shopping"></i></button></li>
                   </ul>
-                  <div className="quickview-buttons"> <NavLink to={`/productdetails/${item.name.replace(/ /gi, "-")}`} className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
-                  </div> 
-                {/*   <div className="quickview-buttons"> <NavLink to={`/productdetails/${item.articleNumber}`} className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
-                  </div>   */} 
+              
+               <div className="quickview-buttons"> <NavLink  to={`/productdetails/${item.articleNumber}`} className="quickview-button quick-btn-border">QUICK VIEW</NavLink>
+                  </div>   
                  
-                  <div className="card-background">  <div className="featured-image-dark"><img src={item.img}  alt={item.productName} /></div></div>
+              
               <div className="card-body">
                 
                     <h5 className="card-title">{item.category}</h5>
@@ -49,7 +49,7 @@ const ProductCard2 = ({item}) => {
                         </div>
                     <div className="price">
                       <p className="old-price">$35.00</p>
-                      <p className="new-price">{item.price} </p>
+                      <p className="new-price">€ {item.price} </p>
                   </div>
               </div>  
              

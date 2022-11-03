@@ -1,14 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useState } from 'react'
 import { ProductDetailsImages } from './ProductDetailsImages'
 import { QuantityButton } from './QuantityButton'
 import { DetailInfoProduct } from './DetailInfoProduct'
-import { NavItem } from 'react-bootstrap'
-import ProductCard2 from './ProductCard2'
 import { useContext } from 'react';
 import {ProductContext} from './contexts/contexts'
-import { Link } from "react-router-dom"
+
+
 
 
 export const ProductDetailsInfoGrid = ({title, items = []}) => {
@@ -16,12 +14,14 @@ export const ProductDetailsInfoGrid = ({title, items = []}) => {
     const productContext = useContext(ProductContext)
 
     const params = useParams()
-    const setProduct = useParams()
-    const { id } = useParams()
-    
-  
 
+ 
+    const thisProduct = productContext.featuredProducts.find(obj => {
+        return obj.articleNumber == params.articleNumber
+      })
     
+      let currentPage = "Product Details"
+      window.top.document.title = `${thisProduct.name} || Fixxo` 
   return (
     <section className="product-detail-section">
     <div className="container">
@@ -30,14 +30,7 @@ export const ProductDetailsInfoGrid = ({title, items = []}) => {
 
                
 
-             
-                  {
-                items.map(product =>    <ProductDetailsImages key={product.articleNumber} item={product} />)
-
-              }
-
-
- 
+            <ProductDetailsImages />
        
 
 
@@ -45,7 +38,7 @@ export const ProductDetailsInfoGrid = ({title, items = []}) => {
 
         <div className="product-detail-description">
            <div className="prod-desc-1">
-            <h2>{params.name}</h2>
+            <h2>{thisProduct.name}</h2>
          
             <p><small>SKU: 12345670 BRAND: The Northland</small></p>
             <div className="text-theme">
@@ -55,7 +48,7 @@ export const ProductDetailsInfoGrid = ({title, items = []}) => {
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>
               </div>  
-              <h3>{params.price}</h3>
+              <h3>€ {thisProduct.price}</h3>
               <p>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (read more) </p>
            </div>
            <div className="prod-desc-2">

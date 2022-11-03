@@ -78,8 +78,8 @@ const HomeView = () => {
 {/*   <ProductGridSection title="Top Products" products={topProducts} />  */}
    <PamelaReif />
    <Specialty title={"Our Specialty"} />
-  <SpecialOffer1  items={productContext.all} />
-   <SpecialOffer2  items={productContext.all}  />  
+  <SpecialOffer1  items={productContext.featuredProducts} />
+   <SpecialOffer2  items={productContext.featuredProducts}  />  
    <DiscountBanner title={"Up to 70% off*"} />
    <DiscountCard2 />
    <HomeFooter />

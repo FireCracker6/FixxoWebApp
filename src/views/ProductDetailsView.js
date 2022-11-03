@@ -4,15 +4,16 @@ import Footer from '../components/Footer'
 import TopBannerDiscount from '../components/TopBannerDiscount'
 import BreadCrumbsSections from '../components/sections/BreadCrumbsSections'
 import { ProductDetailsInfoGrid } from '../components/ProductDetailsInfoGrid'
-import { useState } from 'react'
 import { ProductDetailGalleryHeader } from '../components/ProductDetailGalleryHeader'
 import {ProductContext} from '../components/contexts/contexts'
 import { useContext } from 'react'
-import { ProductDetailsImages } from '../components/ProductDetailsImages'
 
-function ProductDetailsView() {
+
+function ProductDetailsView({item = []}) {
   const productContext = useContext(ProductContext)
- 
+
+
+
 
   return (
     <div>
@@ -27,7 +28,7 @@ function ProductDetailsView() {
     <BreadCrumbsSections currentPage="Product Details" /> 
     <ProductDetailsInfoGrid  items={productContext.all}/>
     <div className="container">
-    <ProductDetailGalleryHeader  title="Related Products" items={productContext.all}  />
+    <ProductDetailGalleryHeader  title="Related Products" items={productContext.featuredProducts}  />
    
     </div>
     <div className="container" style={{height: "100px"}}></div>
