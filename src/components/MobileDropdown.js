@@ -19,7 +19,7 @@ function MobileDropdown() {
          <Dropdown.Item href="/categories">
            Categories
          </Dropdown.Item>
-         <Dropdown.Item href="/productdetails">
+         <Dropdown.Item href="/products">
            Products
          </Dropdown.Item>
          <Dropdown.Item href="/contacts">

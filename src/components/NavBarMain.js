@@ -13,7 +13,7 @@ function NavBarMain() {
     <NavLink to="/categories" end>Categories</NavLink> 
       </div>
     <div className='__ulinks'>
-    <NavLink to="/productdetails" >Products</NavLink>
+    <NavLink to="/products" >Products</NavLink>
       </div>
     <div className='__ulinks'>
     <NavLink to="/contacts" end>Contacts</NavLink>

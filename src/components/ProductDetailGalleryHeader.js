@@ -1,11 +1,12 @@
 import React from 'react'
 import MobileGridCard from './MobileGridCard'
 import ProductCard2 from './ProductCard2'
+import { useContext } from 'react';
+import {ProductContext} from './contexts/contexts'
 
+export const ProductDetailGalleryHeader = ({title, items = []}) => {
 
-export const ProductDetailGalleryHeader = ({title, products}) => {
-
-
+    const products = useContext(ProductContext)
     const [width, setWidth] = React.useState(window.innerWidth);
   const breakpoint = 1200;
 
@@ -39,11 +40,10 @@ export const ProductDetailGalleryHeader = ({title, products}) => {
 
         
      {
+                items.map(product =>    <ProductCard2 key={product.articleNumber} item={product} />)
 
-products.map(product =>     <ProductCard2 key={product.id} item={product} />) 
-
-
-}
+              }
+           
         </div>
     </div>
     </div>
@@ -70,12 +70,10 @@ products.map(product =>     <ProductCard2 key={product.id} item={product} />)
     <div className="product-gallery-grid"> 
 
     
- {
+    {
+                items.map(product =>    <ProductCard2 key={product.articleNumber} item={product} />)
 
-products.map(product =>     <ProductCard2 key={product.id} item={product} />) 
-
-
-}
+              }
     </div>
 </div>
 </div>

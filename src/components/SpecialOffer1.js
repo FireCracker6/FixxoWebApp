@@ -4,7 +4,7 @@ import MobileGridCard from './MobileGridCard'
 import WhiteButton from './WhiteButton'
 import ProductCard2 from './ProductCard2'
 
-const SpecialOffer1 =({products})=> {
+const SpecialOffer1 =({items = []})=> {
 
  
 
@@ -34,12 +34,11 @@ const SpecialOffer1 =({products})=> {
             <div className="container">
    <div className="row row-cols-1 row-cols-sm-2  g-4  row-cols-md-2 g-4   row-cols-xl-4  g-4">
      
-              {
-
-              products.map(product =>     <ProductCard2 key={product.id} item={product} />) 
-              
+   {
+                items.map(product =>    <ProductCard2 key={product.articleNumber} item={product} />)
 
               }
+           
        
   </div>
   </div> 
@@ -65,9 +64,10 @@ const SpecialOffer1 =({products})=> {
                       <div className="products-grid-wrapper">
 
                       {
-                products.map(product =>    <ProductCard2 key={product.id} item={product} />)
+                items.map(product =>    <ProductCard2 key={product.articleNumber} item={product} />)
 
               }
+           
                     
                       </div>
 

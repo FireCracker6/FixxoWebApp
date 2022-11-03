@@ -6,14 +6,20 @@ import { QuantityButton } from './QuantityButton'
 import { DetailInfoProduct } from './DetailInfoProduct'
 import { NavItem } from 'react-bootstrap'
 import ProductCard2 from './ProductCard2'
+import { useContext } from 'react';
+import {ProductContext} from './contexts/contexts'
+import { Link } from "react-router-dom"
 
 
+export const ProductDetailsInfoGrid = ({title, items = []}) => {
 
-export const ProductDetailsInfoGrid = ({products}) => {
-
-   
+    const productContext = useContext(ProductContext)
 
     const params = useParams()
+    const setProduct = useParams()
+    const { id } = useParams()
+    
+  
 
     
   return (
@@ -21,15 +27,14 @@ export const ProductDetailsInfoGrid = ({products}) => {
     <div className="container">
     
    
-   
-            {/* need to get images dynamically */}
-        {/*    <ProductDetailsImages  />  */}
 
-  
+               
 
-              <ProductDetailsImages />
+             
+                  {
+                items.map(product =>    <ProductDetailsImages key={product.articleNumber} item={product} />)
 
-
+              }
 
 
  
@@ -105,7 +110,7 @@ export const ProductDetailsInfoGrid = ({products}) => {
            <div className="item-4">
                 <div className="share">
                     <h2>Share:  </h2>
-                 {/*    <p> */}
+                
                  <div className="social">
                      <div className="social-media-circle"> <i className="fa-brands fa-facebook-f"></i></div>
                         <div className="social-media-circle">  <i className="fa-brands fa-instagram"></i></div>
@@ -113,7 +118,7 @@ export const ProductDetailsInfoGrid = ({products}) => {
                         <div className="social-media-circle">  <i className="fa-brands fa-google"></i></div>
                         <div className="social-media-circle">  <i className="fa-brands fa-linkedin"></i></div>
                         </div>
-                     {/*    </p> */}
+                  
                 </div>
             </div> 
            </div>
