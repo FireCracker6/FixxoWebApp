@@ -5,13 +5,25 @@ import TopBannerDiscount from '../components/TopBannerDiscount'
 import BreadCrumbsSections from '../components/sections/BreadCrumbsSections'
 import { ProductDetailsInfoGrid } from '../components/ProductDetailsInfoGrid'
 import { ProductDetailGalleryHeader } from '../components/ProductDetailGalleryHeader'
-import {ProductContext} from '../components/contexts/contexts'
-import { useContext } from 'react'
+import {FeaturedProductsContext} from '../components/contexts/contexts'
+import { useContext, useEffect, useState } from 'react'
+
+
 
 
 function ProductDetailsView({item = []}) {
-  const productContext = useContext(ProductContext)
+  const products = useContext(FeaturedProductsContext);
+  
+ let [thisProduct, SetThisProduct] = useState({})
 
+
+  useEffect(() => {
+    const fetchData = async () => {
+        const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/`)
+      SetThisProduct(await result.json())
+    }
+    fetchData()
+}, [])
 
 
 
@@ -26,9 +38,9 @@ function ProductDetailsView({item = []}) {
     </div> 
     <TopBannerDiscount />
     <BreadCrumbsSections currentPage="Product Details" /> 
-    <ProductDetailsInfoGrid  items={productContext.all}/>
+    <ProductDetailsInfoGrid  items={products}/>
     <div className="container">
-    <ProductDetailGalleryHeader  title="Related Products" items={productContext.featuredProducts}  />
+    <ProductDetailGalleryHeader  title="Related Products" items={products}  />
    
     </div>
     <div className="container" style={{height: "100px"}}></div>

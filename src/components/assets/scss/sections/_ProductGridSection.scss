@@ -225,7 +225,7 @@
    
         height: 39px;
         width: 39px;
-        background-color: $color-white;
+      
         border-radius: 50%;
         display:inline-block;
         align-items: center;
@@ -244,6 +244,7 @@
         color:$color-white;
         text-decoration: none;
         background-color: $color-dark;
+        
     }
     .card-menu .productButton >  i  {
         
@@ -414,12 +415,13 @@
         transition:  0.2s ease-in-out;
     
                 .productButton {
-                    background-color: $color-white;
+         
                     display: flex;
                     color: black;
                     height: 39px;
                     width: 39px;
                     border: none !important;
+                    outline: none !important;
                     border-radius: 50%;
                     display: inline-block;
                     justify-items: center;
@@ -630,13 +632,13 @@
        font-size: 1.1rem;
        color: $color-dark;
     }
-
-    
+  
     .card-menu button:hover {
         font-weight:600;
         color:$color-white;
         text-decoration: none;
         background-color: $color-dark;
+
     }
     .card-menu .productButton >  i  {
         
@@ -656,10 +658,8 @@
    
     }
     .card-menu button :hover {
-        background-color: black;
+        background-color: $color-dark;
         color: white;
-        border: none !important;
-        outline: none !important;
         border-radius: 50%;
     }
     .card-menu button i {

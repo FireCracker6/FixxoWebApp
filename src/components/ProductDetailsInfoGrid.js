@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { ProductDetailsImages } from './ProductDetailsImages'
 import { QuantityButton } from './QuantityButton'
 import { DetailInfoProduct } from './DetailInfoProduct'
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import {ProductContext} from './contexts/contexts'
 
 
@@ -11,14 +11,24 @@ import {ProductContext} from './contexts/contexts'
 
 export const ProductDetailsInfoGrid = ({title, items = []}) => {
 
-    const productContext = useContext(ProductContext)
+   
 
-    const params = useParams()
+    const {id} = useParams()
+   const [thisProduct, SetThisProduct] = useState({})
+
 
  
-    const thisProduct = productContext.featuredProducts.find(obj => {
-        return obj.articleNumber == params.articleNumber
-      })
+      useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${id}`)
+            
+          SetThisProduct(await result.json())
+        }
+    
+        fetchData()
+    }, [id], [])
+
+      
     
       let currentPage = "Product Details"
       window.top.document.title = `${thisProduct.name} || Fixxo` 
@@ -48,7 +58,7 @@ export const ProductDetailsInfoGrid = ({title, items = []}) => {
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>
               </div>  
-              <h3>€ {thisProduct.price}</h3>
+              <h3>€{thisProduct.price}</h3>
               <p>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (read more) </p>
            </div>
            <div className="prod-desc-2">

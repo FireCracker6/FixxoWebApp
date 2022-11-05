@@ -15,9 +15,9 @@ import Specialty from '../components/Specialty';
 import NavbarGlobal from '../components/NavbarGlobal';
 import ProductGridSection from '../components/sections/ProductGridSection';
 import DiscountCard2 from '../components/DiscountCardSection';
-import { ProductDetailsImages } from '../components/ProductDetailsImages';
 import { useContext } from 'react';
-import {ProductContext} from '../components/contexts/contexts'
+import {ProductsContext, FeaturedProductsContext } from '../components/contexts/contexts'
+
 
 
 
@@ -28,7 +28,8 @@ const HomeView = () => {
   window.top.document.title = "Fixxo."
 
 
-  const productContext = useContext(ProductContext)
+  const productContext = useContext(ProductsContext)
+  const featuredContext =  useContext(FeaturedProductsContext)
 
   /* latest product */
 
@@ -74,12 +75,12 @@ const HomeView = () => {
    <Showcase />
     <ProductsBanner />
  
-  <ProductGridSection title="Featured Products" items={productContext.featuredProducts} /> 
+  <ProductGridSection title="Featured Products" items={productContext} /> 
 {/*   <ProductGridSection title="Top Products" products={topProducts} />  */}
    <PamelaReif />
    <Specialty title={"Our Specialty"} />
-  <SpecialOffer1  items={productContext.featuredProducts} />
-   <SpecialOffer2  items={productContext.featuredProducts}  />  
+  <SpecialOffer1  items={featuredContext} />
+   <SpecialOffer2  items={featuredContext}  />  
    <DiscountBanner title={"Up to 70% off*"} />
    <DiscountCard2 />
    <HomeFooter />

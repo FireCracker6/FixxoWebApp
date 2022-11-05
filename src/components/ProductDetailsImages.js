@@ -1,20 +1,22 @@
-import React from 'react'
+import React, {useState, useEffect }from 'react'
+import { useParams} from 'react-router-dom'
 
 
-
-import {ProductContext} from '../components/contexts/contexts'
-import { useContext } from 'react'
-import { useParams } from 'react-router-dom'
 
 export const ProductDetailsImages = ({item}) => {
 
-  const params= useParams()
+  const {id} = useParams()
+  const [thisProduct, setThisProduct] = useState({})
+  console.log(id)
 
-  const productContext = useContext(ProductContext)
-
-  const thisProduct = productContext.featuredProducts.find(obj => {
-    return obj.articleNumber == params.articleNumber
-  })
+  useEffect(() => {
+    const fetchData = async () => {
+        const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${id}`)
+        setThisProduct(await result.json())
+   
+    }
+    fetchData()
+}, [id], [])
 
 
 

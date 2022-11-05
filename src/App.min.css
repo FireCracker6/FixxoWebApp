@@ -1787,7 +1787,6 @@ a.quickview-button:hover {
   margin-bottom: 0.5rem;
   height: 39px;
   width: 39px;
-  background-color: #FFFFFF;
   border-radius: 50%;
   display: inline-block;
   -webkit-box-align: center;
@@ -1970,7 +1969,6 @@ a.quickview-button:hover {
     transition: 0.2s ease-in-out;
   }
   .product-grid .card .card-menu .productButton {
-    background-color: #FFFFFF;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1978,6 +1976,7 @@ a.quickview-button:hover {
     height: 39px;
     width: 39px;
     border: none !important;
+    outline: none !important;
     border-radius: 50%;
     display: inline-block;
     justify-items: center;
@@ -2190,10 +2189,8 @@ a.quickview-button:hover {
         align-self: center;
   }
   .card-menu button :hover {
-    background-color: black;
+    background-color: #080C24;
     color: white;
-    border: none !important;
-    outline: none !important;
     border-radius: 50%;
   }
   .card-menu button i {

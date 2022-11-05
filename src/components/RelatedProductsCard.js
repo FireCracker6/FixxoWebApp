@@ -1,9 +1,9 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+
 
 import { NavLink } from 'react-router-dom'
 
-const ProductCard2 = ({item}) => {
+const RelatedProductsCard = ({item}) => {
 
   const addToWishList = (e) => {
     console.log(`added to wish list)`)
@@ -63,4 +63,4 @@ const ProductCard2 = ({item}) => {
   )
 }
 
-export default ProductCard2
+export default RelatedProductsCard
